@@ -1,0 +1,59 @@
+/******************************************************************************
+Name of File: recursive_bubble_sort_using_arrays.cpp
+Description: Recursive bubble sort algorithm implementation in C++ using arrays
+Author: Krishnan A 
+Last Updated: 05th November 2018
+*******************************************************************************/
+
+// Including library files
+#include <iostream>
+using namespace std;
+
+// Description: User defined functions
+void swap (int *element1, int *element2) {
+    
+    int temp;
+    temp = *element1;
+    *element1 = *element2;
+    *element2 = temp;
+}
+
+void display_sorted_array (int array[], int num_of_elements) {
+
+    int l;
+    
+    cout << "Bubble sorted array is \n" << endl;
+    
+    for (l = 0; l < num_of_elements; l++) {
+        cout << array[l] << "\t" << endl;;
+    }
+}
+
+void bubblesort (int array[], int num_of_elements) {
+    
+    int j;
+    int k;
+
+    if (num_of_elements == 1) {
+        return;
+    }
+    
+    else {
+        for (j=0; j<num_of_elements-1; j++) {
+            if (array[j] > array[j+1]) {
+                swap (&array[j], &array[j+1]);
+            }
+            bubblesort (array, num_of_elements-1); // Recursion
+        }
+    }
+}
+
+int main () {
+    int array[] = {10,40,16,1,5};
+    int num_of_elements = (sizeof(array))/sizeof(array[0]);
+    cout << "Num of elements is " << num_of_elements << endl;
+    bubblesort (array, num_of_elements);
+    cout << "Hello" << endl;
+    display_sorted_array (array, num_of_elements);
+    return 0;
+}
