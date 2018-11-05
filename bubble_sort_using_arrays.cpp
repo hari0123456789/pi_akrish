@@ -16,7 +16,6 @@ void swap (int *element1, int *element2) {
     temp = *element1;
     *element1 = *element2;
     *element2 = temp;
-    
 }
 
 void bubblesort (int array[], int num_of_elements) {
@@ -40,7 +39,7 @@ void bubblesort (int array[], int num_of_elements) {
     }
 }
 
-void print_sorted_array (int array[], int num_of_elements) {
+void display_sorted_array (int array[], int num_of_elements) {
 
     int l;
     
@@ -56,6 +55,6 @@ int main () {
     int num_of_elements = (sizeof(array))/sizeof(array[0]);
     //cout << "Num of elements is " << num_of_elements << endl;
     bubblesort (array, num_of_elements);
-    print_sorted_array (array, num_of_elements);
+    display_sorted_array (array, num_of_elements);
     return 0;
 }
