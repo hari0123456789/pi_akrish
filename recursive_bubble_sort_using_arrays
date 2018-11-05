@@ -33,9 +33,16 @@ void bubblesort (int array[], int num_of_elements) {
     
     int j;
     int k;
+    int temp = num_of_elements;
 
     if (num_of_elements == 1) {
         return;
+    }
+    
+    else if (num_of_elements-1 == 0) {
+        if (array[num_of_elements-1] > array[num_of_elements]) {
+            swap (&array[j], &array[j+1]);
+        }
     }
     
     else {
@@ -43,17 +50,23 @@ void bubblesort (int array[], int num_of_elements) {
             if (array[j] > array[j+1]) {
                 swap (&array[j], &array[j+1]);
             }
-            bubblesort (array, num_of_elements-1); // Recursion
         }
+    
+        temp--;
+        bubblesort (array, temp);
     }
 }
 
+// Main function
 int main () {
-    int array[] = {10,40,16,1,5};
+    
+    int array[] = {10,40,16,1};
+    
     int num_of_elements = (sizeof(array))/sizeof(array[0]);
-    cout << "Num of elements is " << num_of_elements << endl;
+    cout << "Number of elements is " << num_of_elements << endl;
+    
     bubblesort (array, num_of_elements);
-    cout << "Hello" << endl;
     display_sorted_array (array, num_of_elements);
+    
     return 0;
 }
