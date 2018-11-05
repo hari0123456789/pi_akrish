@@ -27,7 +27,7 @@ void bubblesort (int array[], int num_of_elements) {
     
     for (j=0; j<num_of_elements; j++) {
         swapped = false;
-        for (k=0; k<=num_of_elements-j-1; k++) {
+        for (k=0; k<num_of_elements-j-1; k++) {
             if (array[k] > array[k+1]) {
                 swap (&array[k], &array[k+1]);
                 swapped = true;
@@ -44,7 +44,7 @@ void print_sorted_array (int array[], int num_of_elements) {
 
     int l;
     
-    cout << "Sorted array is \n" << endl;
+    cout << "Bubble sorted array is \n" << endl;
     
     for (l = 0; l < num_of_elements; l++) {
         cout << array[l] << "\t" << endl;;
@@ -52,7 +52,7 @@ void print_sorted_array (int array[], int num_of_elements) {
 }
 
 int main () {
-    int array[] = {10,40,16,1,5};
+    int array[] = {10,40,16,1};
     int num_of_elements = (sizeof(array))/sizeof(array[0]);
     //cout << "Num of elements is " << num_of_elements << endl;
     bubblesort (array, num_of_elements);
