@@ -1,0 +1,67 @@
+/******************************************************************************
+Name of File: selection_sort_using_arrays.cpp
+Description: selection sort algorithm implementation in C++ using arrays
+Author: Krishnan A 
+Last Updated: 06th November 2018
+*******************************************************************************/
+
+// Including library files
+#include <iostream>
+using namespace std;
+
+// Description: User defined functions
+void swap (int *element1, int *element2) {
+    
+    int temp;
+    temp = *element1;
+    *element1 = *element2;
+    *element2 = temp;
+}
+
+void display_sorted_array (int array[], int num_of_elements) {
+
+    int l;
+    
+    cout << "Selection sorted array is \n" << endl;
+    
+    for (l = 0; l < num_of_elements; l++) {
+        cout << array[l] << "\t" << endl;;
+    }
+}
+
+void selectionsort (int array[], int num_of_elements) {
+    
+    int i;
+    int j;
+    int min_value_index;
+
+    if (num_of_elements == 1) {
+        return;
+    }
+    
+    else {
+        for (i=0; i<num_of_elements-1; i++) {
+            min_value_index = i;
+            for (j=i+1; j<num_of_elements; j++) {
+                if (array[j] < array[min_value_index]) {
+                    min_value_index=j;
+                }
+            }
+        swap (&array[min_value_index], &array[i]);
+        }
+    }
+}
+
+// Main function
+int main () {
+    
+    int array[] = {10,40,16,1};
+    
+    int num_of_elements = (sizeof(array))/sizeof(array[0]);
+    cout << "Number of elements is " << num_of_elements << endl;
+    
+    selectionsort (array, num_of_elements);
+    display_sorted_array (array, num_of_elements);
+    
+    return 0;
+}
